@@ -12,8 +12,7 @@ import frc.robot.subsystems.NetworkTableClient;
 
 public class upXYValues extends CommandBase {
   private final NetworkTableClient networkTableClient;
-  private double x;
-  private double y;
+  private double x,y;
   private final DoublePublisher xPub;
   private final DoublePublisher yPub;
   
@@ -42,6 +41,7 @@ public class upXYValues extends CommandBase {
       yPub.set(y);
       x += 1.00007;
       y += 1.5;
+      System.out.println("Command is Running!");
   }
 
   // Called once the command ends or is interrupted.
