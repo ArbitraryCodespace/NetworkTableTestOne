@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -46,7 +47,9 @@ public class RobotContainer {
    */
         private void configureButtonBindings() {
           Trigger aButton = new JoystickButton(driveStick,XboxController.Button.kA.value); 
-          aButton.whileTrue(new upXYValues(new NetworkTableClient()));
+          NetworkTableClient ntc = new NetworkTableClient();
+          upXYValues runXY = new upXYValues(ntc);
+          aButton.whileTrue(runXY);
         }
 
 }

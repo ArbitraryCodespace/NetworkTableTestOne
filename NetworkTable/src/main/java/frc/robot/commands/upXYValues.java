@@ -25,13 +25,17 @@ public class upXYValues extends CommandBase {
     xPub  = networkTable.getDoubleTopic("x").publish();
     yPub = networkTable.getDoubleTopic("y").publish();
     addRequirements(ntc);
+    initialize();
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    x = 10;
-    y = 20;
+    x = 0;
+    y = 0;
+    xPub.set(x);
+    yPub.set(y);
+    execute();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -41,7 +45,6 @@ public class upXYValues extends CommandBase {
       yPub.set(y);
       x += 1.00007;
       y += 1.5;
-      System.out.println("Command is Running!");
   }
 
   // Called once the command ends or is interrupted.

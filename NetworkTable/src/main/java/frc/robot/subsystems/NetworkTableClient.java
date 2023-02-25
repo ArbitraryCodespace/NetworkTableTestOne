@@ -34,6 +34,7 @@ public class NetworkTableClient extends SubsystemBase {
     //public values that increase constantly
     timePub.set(time.format(timeFormat));
     time = LocalDateTime.now();
+
   }
   
   public NetworkTableInstance getNetworkTableInstance() {
